@@ -15,11 +15,7 @@ body {
     bottom: 0;
   }
   
-  .responsive-img {
-    width: 100%; /* 너비를 100%로 설정 */
-    max-width: 500px; /* 최대 너비를 500px로 설정 */
-    height: auto; /* 비율을 유지하면서 높이 자동 조정 */
-}
+
 
   .bookcover {
     background-color:gray;
@@ -268,6 +264,12 @@ body {
     font-size: 13px;
     color: black;
   }
+
+  .update_text {
+    text-decoration: none; /* 밑줄 제거 */
+    color: inherit; /* 부모 요소의 색상 상속 */
+  }
+
   .updated_news_red{
     color: whitesmoke;
     background-color:coral;
@@ -326,4 +328,3 @@ body {
 
     border-radius: 5px;
   }
-
