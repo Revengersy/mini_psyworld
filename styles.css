@@ -110,6 +110,7 @@ body {
   .profile_1{
     flex: 0.6;
   }
+  
   .profile_image{
     width: 180px;
     height: 180px;
@@ -117,15 +118,18 @@ body {
     margin: 20px;
     border-radius: 5px;
   }
+
   .profile_2{
     flex: 1;
   
     color: black;
     font-size: 13px;
+    line-height: 3.0;
   
     margin-right: 20px;
     margin-left: 20px;
   }
+
   .profile_3{
     flex:0.1;
   
