@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    
+    const firebaseConfig = {
+      apiKey: "AIzaSyB-VPC_E8wRqgNZFYmeZ-Yb1OaF9ctoiKE",
+      authDomain: "sparta-805ba.firebaseapp.com",
+      projectId: "sparta-805ba",
+      storageBucket: "sparta-805ba.firebasestorage.app",
+      messagingSenderId: "956226350011",
+      appId: "1:956226350011:web:8ebf1188ae5c29a73af29e",
+      measurementId: "G-V6BYS10MZS"
+    };
+
+    // Firebase 인스턴스 초기화
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    $("#comment-form").submit(async function(event) {
+      event.preventDefault();
+      let author = $('#author').val();
+      let content = $('#content').val();
+      
+      const doc = {
+        'author': author,
+        'content': content
+      };
+
+      await addDoc(collection(db, "comments"), doc);
+      event.target.reset();
+      alert("댓글이 등록되었습니다.");
+    })
+  </script>
+</head>
+<body>
+  <div id="comment-contents">
+
+  </div>
+  <form id="comment-form">
+    <input type="text" id="author" name="author" maxlength="10" placeholder="작성자" />
+    <input type="text" id="content" name="content" maxlength="30" placeholder="내용을 입력하세요" />
+    <button type="submit">전송</button>
+  </form>
+</body>
+</html>
