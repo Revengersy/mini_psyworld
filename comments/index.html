@@ -12,13 +12,22 @@
   </head>
 
   <body>
+    <div class="comment">
       <div id="comment-contents">
       </div>
-      <form id="comment-form">
-          <input type="text" id="author" name="author" minlength="1" maxlength="10" placeholder="작성자" required/>
-          <input type="text" id="content" name="content" minlength="1" maxlength="30" placeholder="내용을 입력하세요" required/>
-          <input type="password" id="pw" name="pw" minlength="1" maxlength="6" placeholder="비밀번호를 입력하세요" required/>
-          <button type="submit">전송</button>
+      <br/>
+      <form id="comment-form" class="comment-form">
+        <div class="comment-form__container">
+          <div class="comment-form__group">
+            <input class="comment-form__input comment-form__input--author" type="text" id="author" name="author" minlength="1" maxlength="10" placeholder="작성자" required/>
+            <input class="comment-form__input comment-form__input--password" type="password" id="pw" name="pw" minlength="1" maxlength="6" placeholder="비밀번호를 입력하세요" required/>
+          </div>
+          <div class="comment-form__group">
+            <input class="comment-form__input comment-form__input--comment" type="text" id="content" name="content" minlength="1" maxlength="30" placeholder="내용을 입력하세요" required/>
+          </div>
+        </div>
+        <button type="submit" class="comment-form__button">전송</button>
       </form>
+    </div>
   </body>
 </html>

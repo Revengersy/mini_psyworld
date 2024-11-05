@@ -90,6 +90,8 @@ body {
     border-radius: 9px;
   
     background-color: white;
+    overflow: scroll;
+    height: 550px;
   }
   
   
@@ -327,4 +329,67 @@ body {
     margin-left: 25px;
 
     border-radius: 5px;
+  }
+
+
+  .comment-item {
+    padding: 0.5rem;
+    color: black;
+  }
+  
+  .comment-item--header {
+    background-color: #f0f0f0;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .comment-form {
+    display: flex;
+    width: 100%;
+    gap: 0;
+  }
+  
+  .comment-form__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #ccc;
+  }
+  
+  .comment-form__group {
+    display: flex;
+    width: 100%;
+  }
+  
+  .comment-form__input {
+    padding: 1rem;
+    width: 100%;
+    border: none;
+  }
+  
+  .comment-form__input--password {
+    border-left: 1px solid #ccc;
+  }
+  
+  .comment-form__input--comment {
+    border-top: 1px solid #ccc;
+  }
+  
+  .comment-form__button {
+    display: block;
+    padding: 2rem;
+    width: 8rem;
+    background-color: #ccc;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .comment-form__button:hover {
+    background-color: #808080;
+  }
+  
+  .comment {
+    padding: 1rem;
   }
