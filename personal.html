@@ -46,8 +46,8 @@
 
     try {
       // 추후에 이름 바꿀 것
-      const q = query(collection(db, 'personalPage'), where('name', '==', "최원준"));
-      // const q = query(collection(db, 'personalPage'), where('name', '==', name));
+      // const q = query(collection(db, 'personalPage'), where('name', '==', "최원준"));
+      const q = query(collection(db, 'personalPage'), where('name', '==', name));
 
       const querySnapshot = await getDocs(q);
 
