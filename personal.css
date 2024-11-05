@@ -90,6 +90,8 @@ body {
   border-radius: 9px;
 
   background-color: white;
+  overflow: scroll;
+  height: 550px;
 }
 
 /* 좌측 멤버 카드 */
