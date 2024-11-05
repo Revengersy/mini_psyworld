@@ -12,7 +12,7 @@
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
     import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-    import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { collection, addDoc, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
     import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
     const firebaseConfig = {
@@ -28,53 +28,72 @@
     // Firebase 인스턴스 초기화
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
-
+    
     $("#comment-form").submit(async function (event) {
       event.preventDefault();
       let author = $('#author').val();
       let content = $('#content').val();
-
+      const date = new Date();
+      const formatted = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${(date.getDate()).toString().padStart(2, '0')} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`
       const doc = {
         'author': author,
-        'content': content
+        'content': content,
+        'date': formatted
       };
 
       await addDoc(collection(db, "comments"), doc);
       event.target.reset();
       alert("댓글이 등록되었습니다.");
       
-      let temp = `
-      ${author}${content}    <br>  
-   `
-
-      $("#comment-contents").append(temp);
+      renderComments();
     })
 
     // 불러오기
-    let docs = await getDocs(collection(db, "comments"));
-    docs.forEach((doc) => {
-      let row = doc.data();
-      // console.log(row);
+    async function renderComments() {
+      const data = [];
+      let str = "";
+      
+      let docs = await getDocs(collection(db, "comments"));
+      docs.forEach((doc) => {
+        const result = {...doc.data(), id: doc.id};
+        data.push(result);
+      });
+    
+      data
+      .sort((docA, docB) => {
+        return new Date(docA['date']) - new Date(docB['date']);
+      }) // 정렬
+      .forEach((row) => {
+        let author = row['author'];
+        let content = row['content'];
+        let date = row['date'];
+        let id = row['id'];
 
-      let author = row['author']
-      let content = row['content']
+        str += `<div>
+          작성자: ${author}, 댓글: ${content}, 날짜: ${date},
+          <button class="comment-delete" data-id=${id}>삭제</button>
+        </div>`;
+      });
 
-      let temp = `
-      ${author}${content}    <br>  
-   `
+      $("#comment-contents").html(str);
+    }
+    await renderComments();
 
-      $("#comment-contents").append(temp);
-    })
+    $(document).on('click', '.comment-delete', async function (event) {
+      const id = event.target.getAttribute('data-id');
+      await deleteDoc(doc(db, "comments", id));
+      await renderComments();
+    });
   </script>
 </head>
 
 <body>
   <div id="comment-contents">
-
   </div>
   <form id="comment-form">
-    <input type="text" id="author" name="author" maxlength="10" placeholder="작성자" />
-    <input type="text" id="content" name="content" maxlength="30" placeholder="내용을 입력하세요" />
+    <input type="text" id="author" name="author" minlength="1" maxlength="10" placeholder="작성자" />
+    <input type="text" id="content" name="content" minlength="1" maxlength="30" placeholder="내용을 입력하세요" />
+
     <button type="submit">전송</button>
   </form>
 </body>
