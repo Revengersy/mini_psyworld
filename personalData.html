@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<script type="module">
+    // Firebase SDK 라이브러리 가져오기
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+
+    // Firebase 구성 정보 설정 
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyBpsgZrksta0aLlWNG01534vA1s45rUXzs",
+        authDomain: "minipsyworld.firebaseapp.com",
+        projectId: "minipsyworld",
+        storageBucket: "minipsyworld.firebasestorage.app",
+        messagingSenderId: "69424392710",
+        appId: "1:69424392710:web:5e3b7e1ccfe20c62a5b187",
+        measurementId: "G-F8ZR9BZQJQ"
+    };
+
+    // Firebase 인스턴스 초기화
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+
+    $("#postingbtn").click(async function () {
+        let nameBirthday = $('#nameBirthday').val();
+        let hashtag = $('#hashtag').val();
+        let image = $('#image').val();
+        let comment = $('#comment').val();
+
+        let doc = {
+            'nameBirthday': nameBirthday,
+            'hashtag': hashtag,
+            'image': image,
+            'comment': comment
+        };
+        await addDoc(collection(db, "personalPage"), doc);
+    })
+</script>
+
+<body>
+    <!-- 업로드 -->
+    <div class="postingbox" id="postingbox">
+        <div class="form-floating mb-1">
+            <input type="email" class="form-control" id="name" placeholder="이름">
+            <label for="floatingInput">이름</label>
+        </div>
+        <div class="form-floating mb-2">
+            <input type="email" class="form-control" id="hashtag" placeholder="해시태그">
+            <label for="floatingInput">해시태그</label>
+        </div>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="image" placeholder="사진 등록">
+        <label for="floatingInput">이미지 주소를 붙여넣으세요</label>
+    </div>
+    <div class="form-floating mb-4">
+        <input type="email" class="form-control" id="comment" placeholder="상세 설명">
+        <label for="floatingInput">상세 설명을 적으세요</label>
+    </div>
+    <div class="form-floating mb-5">
+        <input type="email" class="form-control" id="birthday" placeholder="생일">
+        <label for="floatingInput">생일</label>
+    </div>
+    <button id="postingbtn" type="button" class="btn btn-danger">기록하기</button>
+    </div>
+
+</body>
+
+</html>
