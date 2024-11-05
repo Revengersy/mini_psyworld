@@ -5,7 +5,7 @@
 
 body {
   background-color: #a3a3a3;
-  background-image: url("../static/images/pattern.png");
+  /* background-image: url("../static/images/pattern.png"); */
   background-size: 100px;
 
   position: fixed;
@@ -15,11 +15,6 @@ body {
   bottom: 0;
 }
 
-.responsive-img {
-  width: 100%; /* 너비를 100%로 설정 */
-  max-width: 500px; /* 최대 너비를 500px로 설정 */
-  height: auto; /* 비율을 유지하면서 높이 자동 조정 */
-}
 
 
 .bookcover {
@@ -117,7 +112,7 @@ body {
 .profile_1 {
   flex: 0.6;
   margin-top: 65px;
-  
+
 }
 
 .profile_image {
@@ -200,47 +195,48 @@ body {
 }
 
 /*오른쪽 메뉴버튼*/
-  .menu_bar{
-    display: flex;
-    flex-direction: column;
-    flex: 0.1;
-  
-    margin-top: 70px;
-    margin-bottom: 360px;
-    margin-right: 15px;
+.menu_bar {
+  display: flex;
+  flex-direction: column;
+  flex: 0.1;
 
-    font-family: 'Nanum Gothic', sans-serif;
-  }
+  margin-top: 70px;
+  margin-bottom: 360px;
+  margin-right: 15px;
 
-  .nav-link {
-    width: 80px;
-    margin-bottom: 5px;
-  }
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.nav-link {
+  width: 80px;
+  margin-bottom: 5px;
+}
 
 
-  .menu_bar > a{
-    flex: 1;
+.menu_bar>a {
+  flex: 1;
 
-    background-color: steelblue;
-    color: whitesmoke;
-    text-align: left;
-    line-height: 30px;
+  background-color: steelblue;
+  color: whitesmoke;
+  text-align: left;
+  line-height: 30px;
 
-    margin-top: 6px;
-    margin-bottom: 6px;
+  margin-top: 6px;
+  margin-bottom: 6px;
 
-    border-top: 1px solid silver;
-    border-bottom: 1px solid silver;
-    border-right: 1px solid silver;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+  border-top: 1px solid silver;
+  border-bottom: 1px solid silver;
+  border-right: 1px solid silver;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 
-    text-decoration: none;
-    font-size: 13px;
-  }
-  .menu_bar > a:hover{
-    background-color:#4F92CD;
-  }
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.menu_bar>a:hover {
+  background-color: #4F92CD;
+}
 
 /* 상단 뉴스 업데이트 */
 .updated_news_title {
@@ -349,4 +345,38 @@ body {
   justify-content: center;
   margin-top: 20px;
 
+}
+
+.image {
+  width: 180px;
+  height: 180px;
+
+  margin: 20px;
+  border-radius: 5px;
+
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.comment {
+  color: black;
+  font-family: 'Stylish', sans-serif;
+  font-size: 20px;
+
+  margin-left: 7px;
+  margin-right: 7px;
+}
+
+.hashtag {
+  color: steelblue;
+  font-family: 'Stylish', sans-serif;
+  font-size: 20px;
+
+  margin-left: 7px;
+  margin-right: 7px;
 }
