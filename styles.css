@@ -201,6 +201,12 @@ body {
     font-family: 'Nanum Gothic', sans-serif;
   }
 
+  .nav-link {
+    width: 80px;
+    margin-bottom: 5px;
+  }
+
+
   .menu_bar > a{
     flex: 1;
 
