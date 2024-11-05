@@ -15,6 +15,13 @@ body {
   bottom: 0;
 }
 
+.responsive-img {
+  width: 100%; /* 너비를 100%로 설정 */
+  max-width: 500px; /* 최대 너비를 500px로 설정 */
+  height: auto; /* 비율을 유지하면서 높이 자동 조정 */
+}
+
+
 .bookcover {
   background-color: gray;
   border-radius: 9px;
