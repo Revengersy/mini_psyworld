@@ -11,7 +11,7 @@ export default class FirebaseAction {
   }
 
   async save(obj) {
-    addDoc(collection(db, this.collectionName), obj);
+    await addDoc(collection(db, this.collectionName), obj);
   }
 
   async findAll() {
@@ -26,6 +26,6 @@ export default class FirebaseAction {
   }
 
   async deleteById(id) {
-    deleteDoc(doc(db, this.collectionName, id));
+    await deleteDoc(doc(db, this.collectionName, id));
   }
 }
