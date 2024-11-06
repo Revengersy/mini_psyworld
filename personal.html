@@ -23,7 +23,7 @@
       const allData = await firebaseAction.findBy("name", name);
 
       allData.forEach((data)=>{
-        let comment = data.comment;
+        let comment = data.comment.split(". ").join(".</br>");
         let hashtag = data.hashtag;
         let image = data.image;
         let nameBirthday = "[" + data.name + " " + data.birthday + "]";
