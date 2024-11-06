@@ -1,7 +1,7 @@
 # 🥳 JoyWorld 🎉
 
 <div align="center">
-    <a target="_blank" href="https://revengersy.github.io/mini_psyworld/">[🥳JoyWorld🎉 방문하기]</a> &nbsp;&nbsp; <a target="_blank" href="https://www.notion.so/teamsparta/JoyWorld-1332dc3ef51480b087dadbe0fc784849">[팀 노션 바로가기]</a>
+    <a target="_blank" href="https://revengersy.github.io/mini_psyworld/">[🥳JoyWorld🎉 방문하기]</a> &nbsp;&nbsp; <a target="_blank" href="https://teamsparta.notion.site/JoyWorld-1332dc3ef51480b087dadbe0fc784849">[팀 노션 바로가기]</a>
     
 </div>
 
