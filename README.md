@@ -1,5 +1,10 @@
 # 🥳 JoyWorld 🎉
 
+<div align="center">
+    <a target="_blank" href="https://revengersy.github.io/mini_psyworld/">[🥳JoyWorld🎉 방문하기]</a> &nbsp;&nbsp; <a target="_blank" href="https://www.notion.so/teamsparta/JoyWorld-1332dc3ef51480b087dadbe0fc784849">[팀 노션 바로가기]</a>
+    
+</div>
+
 ## 🗣️ Introduce
 - **컨셉**: 2000년대 인기 SNS 싸이월드를 벤치마킹하여, 레트로 감성을 자극하는 팀 소개 페이지 작성.
 - **기술**: 기본 페이지와 그 꾸미기로 HTML과 CSS 기본 웹개발을 시연하며 ‘일촌평’ 기능으로 JQuery 및 firebase 기반 서버와 상호작용을 구현함
