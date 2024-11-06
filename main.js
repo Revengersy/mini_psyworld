@@ -2,17 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebas
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { collection, addDoc, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-
-  const firebaseConfig = {
-      apiKey: "AIzaSyB-VPC_E8wRqgNZFYmeZ-Yb1OaF9ctoiKE",
-      authDomain: "sparta-805ba.firebaseapp.com",
-      projectId: "sparta-805ba",
-      storageBucket: "sparta-805ba.firebasestorage.app",
-      messagingSenderId: "956226350011",
-      appId: "1:956226350011:web:8ebf1188ae5c29a73af29e",
-      measurementId: "G-V6BYS10MZS"
-  };
-
+import { firebaseConfig } from "./firebase/config.js";
   // Firebase 인스턴스 초기화
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
