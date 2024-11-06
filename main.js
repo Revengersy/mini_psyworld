@@ -1,11 +1,6 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import { collection, addDoc, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import { firebaseConfig } from "./firebase/config.js";
-  // Firebase 인스턴스 초기화
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+import FirebaseAction from "./firebase/action.js";
+
+const firebaseAction = new FirebaseAction("comments");
 
   // 전송
   $("#comment-form").submit(async function (event) {
@@ -22,24 +17,17 @@ import { firebaseConfig } from "./firebase/config.js";
           'pw': pw
       };
 
-      await addDoc(collection(db, "comments"), doc);
+      await firebaseAction.save(doc);
       event.target.reset();
       alert("댓글이 등록되었습니다.");
-
       renderComments();
   })
 
   // 불러오기
   async function renderComments() {
-      const data = [];
       let str = "";
 
-      let docs = await getDocs(collection(db, "comments"));
-      docs.forEach((doc) => {
-          const result = { ...doc.data(), id: doc.id };
-          data.push(result);
-
-      });
+      const data = await firebaseAction.findAll();
 
       data
           .sort((docA, docB) => {
@@ -68,6 +56,7 @@ import { firebaseConfig } from "./firebase/config.js";
 
       $("#comment-contents").html(str);
   }
+  
   await renderComments();
 
   //삭제
@@ -77,7 +66,7 @@ import { firebaseConfig } from "./firebase/config.js";
       var userInput = prompt("당신의 비밀번호를 입력하세요");
 
       if (userInput == pw) {
-          await deleteDoc(doc(db, "comments", id));
+          await firebaseAction.deleteById(id);
           await renderComments();
       }
       else {
